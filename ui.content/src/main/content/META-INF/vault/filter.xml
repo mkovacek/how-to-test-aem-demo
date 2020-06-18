@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/demo" mode="merge"/>
+    <filter root="/content/demo" mode="merge"/>
+    <filter root="/content/dam/demo" mode="merge"/>
+    <filter root="/content/experience-fragments/demo" mode="merge"/>
+    <filter root="/var/commerce/products/demo" mode="merge"/>
+</workspaceFilter>
