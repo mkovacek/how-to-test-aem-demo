@@ -26,7 +26,7 @@ import java.io.IOException;
 @Slf4j
 @Component(service = Servlet.class)
 @SlingServletResourceTypes(
-    resourceTypes = "demo/components/content/productdetails",
+    resourceTypes = "demo/components/productdetails",
     selectors = ProductDetailsServlet.ALLOWED_SELECTOR,
     extensions = ExporterConstants.SLING_MODEL_EXTENSION,
     methods = HttpConstants.METHOD_GET)
