@@ -85,7 +85,7 @@
                                 <requireJavaVersion>
                                     <message>Project must be compiled
                                         with Java 8 or higher</message>
-                                    <version>1.8.0</version>
+                                    <version>1.8.0</version> <!--todo: java 11-->
                                 </requireJavaVersion>
                             </rules>
                         </configuration>
@@ -373,6 +373,12 @@ Bundle-DocURL:
 
             <repositories>
                 <repository>
+                    <id>maven-central</id>
+                    <name>Maven Central</name>
+                    <url>https://repo.maven.apache.org/maven2/</url>
+                    <layout>default</layout>
+                </repository>
+                <repository>
                     <id>adobe-public-releases</id>
                     <name>Adobe Public Repository</name>
                     <url>https://repo.adobe.com/nexus/content/groups/public</url>
@@ -539,6 +545,24 @@ Bundle-DocURL:
             <!-- OSGi Dependencies -->
             <dependency>
                 <groupId>org.osgi</groupId>
+                <artifactId>osgi.core</artifactId>
+                <version>7.0.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>osgi.cmpn</artifactId>
+                <version>7.0.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>osgi.annotation</artifactId>
+                <version>7.0.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.osgi</groupId>
                 <artifactId>org.osgi.annotation.versioning</artifactId>
                 <version>1.1.0</version>
                 <scope>provided</scope>
@@ -576,7 +600,7 @@ Bundle-DocURL:
             <dependency>
                 <groupId>org.osgi</groupId>
                 <artifactId>org.osgi.service.event</artifactId>
-                <version>1.3.1</version>
+                <version>1.4.0</version> <!---->
                 <scope>provided</scope>
             </dependency>
             <dependency>
@@ -682,7 +706,13 @@ Bundle-DocURL:
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
-
+            <!-- Lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.12</version>
+                <scope>provided</scope>
+            </dependency>
 
             <!-- Testing -->
             <dependency>
