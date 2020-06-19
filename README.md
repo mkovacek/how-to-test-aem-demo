@@ -1,3 +1,10 @@
+# About
+Test behaviour, not implementation in AEM
+
+Example based on Product details API implementation in AEM
+
+AEM 6.5, Junit 5 & AEM Mocks
+
 # Sample AEM project template
 
 This is a project template for AEM-based applications. It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.
