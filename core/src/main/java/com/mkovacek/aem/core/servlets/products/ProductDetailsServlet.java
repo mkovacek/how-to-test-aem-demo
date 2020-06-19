@@ -44,8 +44,10 @@ public class ProductDetailsServlet extends SlingSafeMethodsServlet {
     protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) throws ServletException, IOException {
         try {
             this.responseService.setJsonContentType(response);
-            if (this.isValidRequest(request)) {
-                final String productId = this.responseService.getSuffix(request);
+            final String selector = request.getRequestPathInfo().getSelectorString();
+            final String productId = this.responseService.getSuffix(request);
+
+            if (this.responseService.areSelectorsValid(selector, ALLOWED_SELECTOR) && StringUtils.isNotBlank(productId)) {
                 final Resource resource = request.getResource();
                 final Response<ProductDetailsModel> data = this.productDetailsService.getProductDetails(productId, resource);
                 this.responseService.sendOk(response, data);
@@ -57,10 +59,4 @@ public class ProductDetailsServlet extends SlingSafeMethodsServlet {
             this.responseService.sendInternalServerError(response);
         }
     }
-
-    private boolean isValidRequest(final SlingHttpServletRequest request) {
-        return this.responseService.areSelectorsValid(request.getRequestPathInfo().getSelectorString(), ALLOWED_SELECTOR)
-                   && StringUtils.isNotBlank(this.responseService.getSuffix(request));
-    }
-
 }
