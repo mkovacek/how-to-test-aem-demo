@@ -25,13 +25,15 @@ import java.io.IOException;
 @Slf4j
 @Component(service = Servlet.class)
 @SlingServletResourceTypes(
-    resourceTypes = "demo/components/productdetails",
+    resourceTypes = ProductDetailsServlet.RESOURCE_TYPE,
     selectors = ProductDetailsServlet.ALLOWED_SELECTOR,
-    extensions = "json",
+    extensions = ProductDetailsServlet.JSON,
     methods = HttpConstants.METHOD_GET)
 public class ProductDetailsServlet extends SlingSafeMethodsServlet {
 
     public static final String ALLOWED_SELECTOR = "productdetails";
+    static final String RESOURCE_TYPE = "demo/components/productdetails";
+    static final String JSON = "json";
 
     @Reference
     private transient ResponseService responseService;
@@ -48,7 +50,7 @@ public class ProductDetailsServlet extends SlingSafeMethodsServlet {
 
             if (this.responseService.areSelectorsValid(selector, ALLOWED_SELECTOR) && StringUtils.isNotBlank(productId)) {
                 final Resource resource = request.getResource();
-                final Response<? super ProductDetailsModel> data = this.productDetailsService.getProductDetails(productId, resource);
+                final Response<ProductDetailsModel> data = this.productDetailsService.getProductDetails(productId, resource);
                 this.responseService.sendOk(response, data);
             } else {
                 this.responseService.sendBadRequest(response);

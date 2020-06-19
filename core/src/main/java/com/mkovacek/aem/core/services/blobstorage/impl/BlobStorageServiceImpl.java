@@ -20,8 +20,13 @@ import java.nio.charset.StandardCharsets;
 @Designate(ocd = BlobStorageConfig.class)
 public class BlobStorageServiceImpl implements BlobStorageService {
 
-    @Activate
     private BlobStorageConfig blobStorageConfig;
+
+    @Activate
+    @Modified
+    private void setConfig(final BlobStorageConfig blobStorageConfig) {
+        this.blobStorageConfig = blobStorageConfig;
+    }
 
     @Override
     public String getProductImageUrl(final String filename) {
