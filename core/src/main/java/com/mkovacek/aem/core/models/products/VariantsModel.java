@@ -20,9 +20,9 @@ import java.util.Locale;
 public class VariantsModel {
 
     @ValueMapValue
-    @Default(longValues = 0)
+    @Default(values = StringUtils.EMPTY)
     @Getter
-    private long id;
+    private String id;
 
     @ValueMapValue
     @Default(intValues = 0)
