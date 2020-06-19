@@ -1,5 +1,6 @@
 package com.mkovacek.aem.core.models.products;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.mkovacek.aem.core.services.products.ProductLocalizationService;
@@ -65,10 +66,12 @@ public class ProductDetailsModel {
     @Getter
     private String description = StringUtils.EMPTY;
 
+    @JsonIgnore
     public boolean isValid() {
         return !this.validVariants.isEmpty();
     }
 
+    @JsonIgnore
     public ProductDetailsModel setLocale(final Locale locale) {
         this.setLocalizedValues(locale);
         this.validateAndSortVariants(locale);

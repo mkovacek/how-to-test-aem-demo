@@ -1,0 +1,68 @@
+{
+  "jcr:primaryType": "nt:unstructured",
+  "id": "123456789",
+  "name.en": "Dummy name en",
+  "name.de": "Dummy name de",
+  "description.de": "Lorem Ipsum ist einfach Dummy Text der Druck und Satzindustrie.",
+  "description.en": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+  "categoryId": "1000060785",
+  "images": {
+    "jcr:primaryType": "nt:unstructured",
+    "1": {
+      "jcr:primaryType": "nt:unstructured",
+      "filename": "dummy_image.jpg",
+      "id": "26906"
+    },
+    "2": {
+      "jcr:primaryType": "nt:unstructured",
+      "filename": "dummy_image_2.jpg",
+      "id": "26906"
+    }
+  },
+  "variants": {
+    "jcr:primaryType": "nt:unstructured",
+    "1234567891": {
+      "jcr:primaryType": "nt:unstructured",
+      "id": "1234567891",
+      "name": "Dummy variant 1",
+      "sortOrder": 5,
+      "availableIn": [
+        "AT",
+        "HR"
+      ],
+      "validFrom": "Mon Jan 01 1900 00:00:00 GMT+0100"
+    },
+    "1234567892": {
+      "jcr:primaryType": "nt:unstructured",
+      "id": "1234567892",
+      "name": "Dummy variant 2",
+      "sortOrder": 3,
+      "availableIn": [
+        "AT",
+        "HR"
+      ],
+      "validFrom": "Mon Jan 01 1900 00:00:00 GMT+0100"
+    },
+    "1234567893": {
+      "jcr:primaryType": "nt:unstructured",
+      "id": "1234567893",
+      "name": "Dummy variant 3",
+      "sortOrder": 10,
+      "availableIn": [
+        "HR"
+      ],
+      "validFrom": "Mon Jan 01 1900 00:00:00 GMT+0100"
+    },
+    "1234567894": {
+      "jcr:primaryType": "nt:unstructured",
+      "id": "1234567894",
+      "name": "Dummy variant 4",
+      "sortOrder": 14,
+      "availableIn": [
+        "AT",
+        "HR"
+      ],
+      "validFrom": "Mon Jan 01 2900 00:00:00 GMT+0100"
+    }
+  }
+}

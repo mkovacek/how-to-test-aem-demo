@@ -1,6 +1,5 @@
 package com.mkovacek.aem.core.servlets.products;
 
-import com.adobe.cq.export.json.ExporterConstants;
 import com.mkovacek.aem.core.models.products.ProductDetailsModel;
 import com.mkovacek.aem.core.records.response.Response;
 import com.mkovacek.aem.core.services.products.ProductDetailsService;
@@ -28,11 +27,11 @@ import java.io.IOException;
 @SlingServletResourceTypes(
     resourceTypes = "demo/components/productdetails",
     selectors = ProductDetailsServlet.ALLOWED_SELECTOR,
-    extensions = ExporterConstants.SLING_MODEL_EXTENSION,
+    extensions = "json",
     methods = HttpConstants.METHOD_GET)
 public class ProductDetailsServlet extends SlingSafeMethodsServlet {
 
-    static final String ALLOWED_SELECTOR = "productdetails";
+    public static final String ALLOWED_SELECTOR = "productdetails";
 
     @Reference
     private transient ResponseService responseService;
@@ -41,7 +40,7 @@ public class ProductDetailsServlet extends SlingSafeMethodsServlet {
     private transient ProductDetailsService productDetailsService;
 
     @Override
-    protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) throws ServletException, IOException {
+    public void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) throws ServletException, IOException {
         try {
             this.responseService.setJsonContentType(response);
             final String selector = request.getRequestPathInfo().getSelectorString();
@@ -49,7 +48,7 @@ public class ProductDetailsServlet extends SlingSafeMethodsServlet {
 
             if (this.responseService.areSelectorsValid(selector, ALLOWED_SELECTOR) && StringUtils.isNotBlank(productId)) {
                 final Resource resource = request.getResource();
-                final Response<ProductDetailsModel> data = this.productDetailsService.getProductDetails(productId, resource);
+                final Response<? super ProductDetailsModel> data = this.productDetailsService.getProductDetails(productId, resource);
                 this.responseService.sendOk(response, data);
             } else {
                 this.responseService.sendBadRequest(response);
@@ -59,4 +58,5 @@ public class ProductDetailsServlet extends SlingSafeMethodsServlet {
             this.responseService.sendInternalServerError(response);
         }
     }
+
 }

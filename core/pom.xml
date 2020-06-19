@@ -45,6 +45,9 @@
                             <bnd><![CDATA[
 Import-Package: javax.annotation;version=0.0.0,*
 Sling-Model-Packages: com.mkovacek.aem.core.models
+_dsannotations: *
+_metatypeannotations: *
+exportScr: true
                                 ]]></bnd>
                         </configuration>
                     </execution>
@@ -123,6 +126,10 @@ Sling-Model-Packages: com.mkovacek.aem.core.models
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.resource</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.util.tracker</artifactId>
+        </dependency>
         <!-- Other Dependencies -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -186,6 +193,21 @@ Sling-Model-Packages: com.mkovacek.aem.core.models
         <dependency>
             <groupId>uk.org.lidalia</groupId>
             <artifactId>slf4j-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

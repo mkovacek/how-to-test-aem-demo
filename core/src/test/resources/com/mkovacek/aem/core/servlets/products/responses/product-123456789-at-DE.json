@@ -1,0 +1,30 @@
+{
+  "status": {
+    "success": true,
+    "message": ""
+  },
+  "data": {
+    "id": "123456789",
+    "categoryId": "1000060785",
+    "images": [
+      {
+        "url": "https://dummyurl.com/images/products/dummy_image.jpg"
+      },
+      {
+        "url": "https://dummyurl.com/images/products/dummy_image_2.jpg"
+      }
+    ],
+    "name": "Dummy name de",
+    "description": "Lorem Ipsum ist einfach Dummy Text der Druck und Satzindustrie.",
+    "variants": [
+      {
+        "id": "1234567892",
+        "name": "Dummy variant 2"
+      },
+      {
+        "id": "1234567891",
+        "name": "Dummy variant 1"
+      }
+    ]
+  }
+}

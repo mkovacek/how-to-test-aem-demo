@@ -1,6 +1,6 @@
 package com.mkovacek.aem.core.services.products.impl;
 
-import com.day.cq.wcm.api.PageManagerFactory;
+import com.day.cq.wcm.api.PageManager;
 import com.mkovacek.aem.core.models.products.ProductDetailsModel;
 import com.mkovacek.aem.core.records.response.Response;
 import com.mkovacek.aem.core.records.response.Status;
@@ -23,20 +23,17 @@ import java.util.Optional;
 public class ProductDetailsServiceImpl implements ProductDetailsService {
 
     private static final String PIM_READER = "pimReader";
-    private static final Response<ProductDetailsModel> notFoundResponse = new Response<>(new Status(true, "Product Details not found"), new ProductDetailsModel());
-    private static final Response<ProductDetailsModel> errorResponse = new Response<>(new Status(false, "Error during fetching product details"), new ProductDetailsModel());
+    private static final Response<ProductDetailsModel> notFoundResponse = new Response<>(new Status(true, "Product Details not found"), null);
+    private static final Response<ProductDetailsModel> errorResponse = new Response<>(new Status(false, "Error during fetching product details"), null);
 
     @Reference
     private ResourceResolverService resourceResolverService;
 
-    @Reference
-    private PageManagerFactory pageManagerFactory;
-
     @Override
     public Response<ProductDetailsModel> getProductDetails(final String id, final Resource resource) {
         try (final ResourceResolver resourceResolver = this.resourceResolverService.getResourceResolver(PIM_READER)) {
+            final Locale locale = resourceResolver.adaptTo(PageManager.class).getContainingPage(resource).getLanguage(false);
             //usually this would be implemented with query
-            final Locale locale = this.pageManagerFactory.getPageManager(resourceResolver).getContainingPage(resource).getLanguage(false);
             final String productPath = StringUtils.join("/var/commerce/products/demo/", id);
             return Optional.ofNullable(resourceResolver.getResource(productPath))
                        .map(productResource -> productResource.adaptTo(ProductDetailsModel.class))

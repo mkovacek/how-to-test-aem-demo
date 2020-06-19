@@ -1,0 +1,34 @@
+{
+  "status": {
+    "success": true,
+    "message": ""
+  },
+  "data": {
+    "id": "123456789",
+    "categoryId": "1000060785",
+    "images": [
+      {
+        "url": "https://dummyurl.com/images/products/dummy_image.jpg"
+      },
+      {
+        "url": "https://dummyurl.com/images/products/dummy_image_2.jpg"
+      }
+    ],
+    "name": "Dummy name en",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    "variants": [
+      {
+        "id": "1234567892",
+        "name": "Dummy variant 2"
+      },
+      {
+        "id": "1234567891",
+        "name": "Dummy variant 1"
+      },
+      {
+        "id": "1234567893",
+        "name": "Dummy variant 3"
+      }
+    ]
+  }
+}
