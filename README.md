@@ -1,5 +1,5 @@
 # About
-Test behaviour, not implementation in AEM
+Test behaviour, not implementation
 
 Example based on Product details API implementation in AEM
 
