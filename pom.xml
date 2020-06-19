@@ -44,6 +44,7 @@
         <bnd.version>4.2.0</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <jackson.version>2.10.2</jackson.version>
     </properties>
 
     <build>
@@ -622,6 +623,12 @@ Bundle-DocURL:
                 <scope>provided</scope>
             </dependency>
             <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>org.osgi.util.tracker</artifactId>
+                <version>1.5.2</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.servlets.annotations</artifactId>
                 <version>1.2.4</version>
@@ -713,7 +720,22 @@ Bundle-DocURL:
                 <version>1.18.12</version>
                 <scope>provided</scope>
             </dependency>
-
+            <!-- Jackson -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
             <!-- Testing -->
             <dependency>
                 <groupId>org.junit</groupId>
@@ -743,7 +765,7 @@ Bundle-DocURL:
             <dependency>
                 <groupId>io.wcm</groupId>
                 <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
-                <version>2.5.2</version>
+                <version>3.0.0</version>
                 <scope>test</scope>
             </dependency>
             <dependency>

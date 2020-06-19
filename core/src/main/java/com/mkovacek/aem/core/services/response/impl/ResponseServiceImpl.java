@@ -24,8 +24,8 @@ import java.util.Optional;
 public class ResponseServiceImpl implements ResponseService {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
-    private static final Response<String> badRequest = new Response<>(new Status(false, "Bad Request"), StringUtils.EMPTY);
-    private static final Response<String> internalServerError = new Response<>(new Status(false, "Internal Server Error"), StringUtils.EMPTY);
+    private static final Response<?> badRequest = new Response<>(new Status(false, "Bad Request"), null);
+    private static final Response<?> internalServerError = new Response<>(new Status(false, "Internal Server Error"), null);
 
     @Override
     public void setJsonContentType(final SlingHttpServletResponse response) {

@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.metatype.annotations.Designate;
 
 import java.io.UnsupportedEncodingException;
@@ -19,18 +20,23 @@ import java.nio.charset.StandardCharsets;
 @Designate(ocd = BlobStorageConfig.class)
 public class BlobStorageServiceImpl implements BlobStorageService {
 
-    @Activate
     private BlobStorageConfig blobStorageConfig;
+
+    @Activate
+    @Modified
+    private void setConfig(final BlobStorageConfig blobStorageConfig) {
+        this.blobStorageConfig = blobStorageConfig;
+    }
 
     @Override
     public String getProductImageUrl(final String filename) {
-        final String imageUrl = StringUtils.join(this.blobStorageConfig.productImagesFolderPath(), filename);
         try {
-            return URLEncoder.encode(imageUrl, StandardCharsets.UTF_8.toString());
+            final String encodedFileName = URLEncoder.encode(filename, StandardCharsets.UTF_8.toString());
+            return StringUtils.join(this.blobStorageConfig.productImagesFolderPath(), encodedFileName);
         } catch (final UnsupportedEncodingException e) {
             log.error("Error during encoding url", e);
         }
-        return imageUrl;
+        return StringUtils.join(this.blobStorageConfig.productImagesFolderPath(), filename);
     }
 
 }

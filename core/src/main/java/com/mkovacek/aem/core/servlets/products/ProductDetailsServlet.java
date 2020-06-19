@@ -1,6 +1,5 @@
 package com.mkovacek.aem.core.servlets.products;
 
-import com.adobe.cq.export.json.ExporterConstants;
 import com.mkovacek.aem.core.models.products.ProductDetailsModel;
 import com.mkovacek.aem.core.records.response.Response;
 import com.mkovacek.aem.core.services.products.ProductDetailsService;
@@ -26,13 +25,15 @@ import java.io.IOException;
 @Slf4j
 @Component(service = Servlet.class)
 @SlingServletResourceTypes(
-    resourceTypes = "demo/components/productdetails",
+    resourceTypes = ProductDetailsServlet.RESOURCE_TYPE,
     selectors = ProductDetailsServlet.ALLOWED_SELECTOR,
-    extensions = ExporterConstants.SLING_MODEL_EXTENSION,
+    extensions = ProductDetailsServlet.JSON,
     methods = HttpConstants.METHOD_GET)
 public class ProductDetailsServlet extends SlingSafeMethodsServlet {
 
-    static final String ALLOWED_SELECTOR = "productdetails";
+    public static final String ALLOWED_SELECTOR = "productdetails";
+    static final String RESOURCE_TYPE = "demo/components/productdetails";
+    static final String JSON = "json";
 
     @Reference
     private transient ResponseService responseService;
@@ -41,7 +42,7 @@ public class ProductDetailsServlet extends SlingSafeMethodsServlet {
     private transient ProductDetailsService productDetailsService;
 
     @Override
-    protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) throws ServletException, IOException {
+    public void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) throws ServletException, IOException {
         try {
             this.responseService.setJsonContentType(response);
             final String selector = request.getRequestPathInfo().getSelectorString();
@@ -59,4 +60,5 @@ public class ProductDetailsServlet extends SlingSafeMethodsServlet {
             this.responseService.sendInternalServerError(response);
         }
     }
+
 }

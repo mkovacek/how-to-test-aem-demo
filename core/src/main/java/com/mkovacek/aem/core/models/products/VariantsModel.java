@@ -25,6 +25,11 @@ public class VariantsModel {
     private String id;
 
     @ValueMapValue
+    @Default(values = StringUtils.EMPTY)
+    @Getter
+    private String name;
+
+    @ValueMapValue
     @Default(intValues = 0)
     @JsonIgnore
     @Getter
@@ -32,19 +37,16 @@ public class VariantsModel {
 
     @ValueMapValue
     @Default(values = StringUtils.EMPTY)
-    @JsonIgnore
-    @Getter
     private String[] availableIn;
 
     @ValueMapValue
     @Default(longValues = 0)
-    @JsonIgnore
-    @Getter
     private Date validFrom;
 
     @OSGiService
     private ProductValidatorService productValidatorService;
 
+    @JsonIgnore
     public boolean isValid(final Locale locale) {
         return this.productValidatorService.isValid(locale, this.availableIn, this.validFrom);
     }

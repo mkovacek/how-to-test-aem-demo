@@ -1,0 +1,18 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:title": "Deutsch",
+    "cq:template": "/conf/demo/settings/wcm/templates/landing-page",
+    "jcr:language": "de_AT",
+    "sling:resourceType": "demo/components/structure/page",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "wcm/foundation/components/responsivegrid",
+      "productdetails": {
+        "jcr:primaryType": "nt:unstructured",
+        "sling:resourceType": "demo/components/productdetails"
+      }
+    }
+  }
+}
