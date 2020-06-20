@@ -2,7 +2,6 @@ package com.mkovacek.aem.core.models.products;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.mkovacek.aem.core.services.products.ProductLocalizationService;
 import com.mkovacek.aem.core.services.products.ProductValidatorService;
 
@@ -26,7 +25,6 @@ import java.util.List;
 import java.util.Locale;
 
 @Slf4j
-@JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_OBJECT, use = JsonTypeInfo.Id.NAME)
 @Model(adaptables = {Resource.class}, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class ProductDetailsModel {
 
