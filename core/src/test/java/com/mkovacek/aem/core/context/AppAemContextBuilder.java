@@ -33,13 +33,13 @@ public class AppAemContextBuilder {
         return this;
     }
 
-    public <T> AppAemContextBuilder registerInjectActivateService(final T osgiService) {
-        this.aemContext.registerInjectActivateService(osgiService, new HashMap<>());
+    public <T> AppAemContextBuilder registerInjectActivateService(final T service) {
+        this.aemContext.registerInjectActivateService(service, new HashMap<>());
         return this;
     }
 
-    public <T> AppAemContextBuilder registerInjectActivateService(final T osgiService, final Map<String, Object> config) {
-        this.aemContext.registerInjectActivateService(osgiService, config);
+    public <T> AppAemContextBuilder registerInjectActivateService(final T service, final Map<String, Object> config) {
+        this.aemContext.registerInjectActivateService(service, config);
         return this;
     }
 
