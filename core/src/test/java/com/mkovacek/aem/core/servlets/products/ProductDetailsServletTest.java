@@ -72,7 +72,7 @@ class ProductDetailsServletTest {
     }
 
     @Test
-    @DisplayName("GIVEN landing page (en-HR) WHEN servlet is called with not valid selector THEN it returns bad request response in JSON format")
+    @DisplayName("GIVEN Product Details Page (en-HR) WHEN servlet is called with not valid selector THEN it returns bad request response in JSON format")
     void testNotValidSelector() throws ServletException, IOException {
         requestPathInfo.setSelectorString(ProductDetailsServlet.ALLOWED_SELECTOR + ".test");
         this.servlet.doGet(context.request(), context.response());
@@ -84,7 +84,7 @@ class ProductDetailsServletTest {
     }
 
     @Test
-    @DisplayName("GIVEN landing page (en-HR) WHEN servlet is called without productId suffix THEN it returns bad request response in JSON format")
+    @DisplayName("GIVEN Product Details Page (en-HR) WHEN servlet is called without productId suffix THEN it returns bad request response in JSON format")
     void testNoProductId() throws ServletException, IOException {
         requestPathInfo.setSuffix(StringUtils.EMPTY);
         this.servlet.doGet(context.request(), context.response());
@@ -96,7 +96,7 @@ class ProductDetailsServletTest {
     }
 
     @Test
-    @DisplayName("GIVEN landing page(en-HR) WHEN servlet is called with not existing productId THEN it returns not found response in JSON format")
+    @DisplayName("GIVEN Product Details Page (en-HR) WHEN servlet is called with not existing productId THEN it returns not found response in JSON format")
     void testNotExistingProductId() throws ServletException, IOException {
         requestPathInfo.setSuffix("123abc");
         this.servlet.doGet(context.request(), context.response());
@@ -108,7 +108,7 @@ class ProductDetailsServletTest {
     }
 
     @Test
-    @DisplayName("GIVEN landing page(en-HR) WHEN servlet is called with existing productId THEN it returns an expected localized (fallback) product details response in JSON format")
+    @DisplayName("GIVEN Product Details Page (en-HR) WHEN servlet is called with existing productId THEN it returns an expected localized (fallback) product details response in JSON format")
     void testProductDetailsInCroatianMarket() throws ServletException, IOException {
         this.servlet.doGet(context.request(), context.response());
         final String expectedProductDetails = ResourceUtil.getExpectedResult(this.getClass(), "responses/product-123456789-hr-HR.json");
@@ -120,7 +120,7 @@ class ProductDetailsServletTest {
     }
 
     @Test
-    @DisplayName("GIVEN landing page (de-AT) WHEN servlet is called with existing productId THEN it returns an expected localized product details response in JSON format")
+    @DisplayName("GIVEN Product Details Page (de-AT) WHEN servlet is called with existing productId THEN it returns an expected localized product details response in JSON format")
     void testProductDetailsInAustrianMarket() throws ServletException, IOException {
         this.setPageResource(TestConstants.DE_AT_LANDING_PAGE_PATH);
         this.servlet.doGet(context.request(), context.response());
@@ -133,7 +133,7 @@ class ProductDetailsServletTest {
     }
 
     @Test
-    @DisplayName("GIVEN landing page (fr-FR) WHEN servlet is called with existing productId which is not valid for French market THEN it returns not found response in JSON format")
+    @DisplayName("GIVEN Product Details Page (fr-FR) WHEN servlet is called with existing productId which is not valid for French market THEN it returns not found response in JSON format")
     void testProductDetailsInFrenchMarket() throws ServletException, IOException {
         this.setPageResource(TestConstants.FR_FR_LANDING_PAGE_PATH);
         this.servlet.doGet(context.request(), context.response());
