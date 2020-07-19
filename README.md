@@ -1,4 +1,7 @@
 # About
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/26149e8228d5439f9689b05fb4f84ddc)](https://app.codacy.com/manual/kc.kb.matija/how-to-test-aem-demo?utm_source=github.com&utm_medium=referral&utm_content=mkovacek/how-to-test-aem-demo&utm_campaign=Badge_Grade_Dashboard)
+
 [Test behaviour, not implementation](https://devz.life/blog/test-behaviour-not-implementation/)
 
 Example based on Product details API implementation in AEM
