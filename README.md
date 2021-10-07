@@ -7,13 +7,12 @@ Behavioural testing in Adobe Experience Manager (AEM)
  - AEM 6.5, Junit 5 & AEM Mocks
 
 For more details check [Test behaviour, not implementation](https://devz.life/blog/test-behaviour-not-implementation/)
-
-tl;dr;
-- If you don't write tests, start writing it
-- Test requirements not implementation
-- Developers should have time for writing tests
-
+ - tl;dr;
+   - if you don't write tests, start writing it
+   - test requirements not implementation
+   - developers should have time for writing tests
 
 
-## How to run tests
+
+### How to run tests
 mvn clean test
